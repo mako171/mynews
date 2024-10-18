@@ -22,3 +22,16 @@ Route::controller(ProfileController::class)->prefix('admin')->group(function() {
     Route::get('admin/profile/create', 'add');
     Route::get('admin/prefile/edit','edit');
 });
+
+
+/*
+|
+|課題3.
+|http://XXXXXX.jp/XXX というアクセスが来たときに、
+|AAAControllerのbbbというAction に渡すRoutingの設定
+|
+|Route::controller(AAA::class)->group(function(){
+|    Route::get('XXX','bbb');
+|})
+|
+*/
