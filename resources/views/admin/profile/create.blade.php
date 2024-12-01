@@ -1,8 +1,8 @@
-{{-- layouts/admin.blade.phpを読み込む --}}
-@extends('layouts.admin')
+{{-- layouts/profile.blade.phpを読み込む --}}
+@extends('layouts.profile')
 
 
-{{-- admin.blade.phpの@yield('title')に'Myプロフィールの新規作成'を埋め込む --}}
+{{-- profile.blade.phpの@yield('title')に'Myプロフィールの新規作成'を埋め込む --}}
 @section('title', 'Myプロフィールの新規作成')
 
 {{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
