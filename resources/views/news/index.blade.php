@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
+    <h2>最新ニュース</h2>
     <hr color="#c0c0c0">
-    <h2>ニュース</h2>
     @if (!is_null($headline))
     <div class="row">
         <div class="headline col-md-10 mx-auto">
