@@ -26,6 +26,7 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
     Route::get('news/edit', 'edit')->name('news.edit');
     Route::post('news/edit', 'update')->name('news.update');
     Route::get('news/delete', 'delete')->name('news.delete');
+    Route::get('news/{id}', 'detail')->name('news.detail');
 });
 
 use App\Http\Controllers\Admin\ProfileController;
@@ -46,6 +47,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 use App\Http\Controllers\NewsController as PublicNewsController;
 
 Route::get('/', [PublicNewsController::class, 'index'])->name('news.index');
+
+// パスパラメータ形式
+Route::get('/news/{id}', [PublicNewsController::class, 'detail'])->name('news.detail');
+Route::get('/news/{id}/comment', [PublicNewsController::class, 'comment'])->name('news.comment');
+Route::post('/news/{id}/comment', [PublicNewsController::class, 'createComment'])->name('news.comment.create');
 
 use App\Http\Controllers\ProfileController as PublicProfileController;
 

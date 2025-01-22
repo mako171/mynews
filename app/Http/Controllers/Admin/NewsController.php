@@ -119,4 +119,11 @@ class NewsController extends Controller
 
         return redirect('admin/news/');
     }
+
+    // 詳細画面を追記
+    public function detail($id)
+    {
+        $post = News::findOrFail($id);
+        return view('admin.news.detail', ['post' => $post]);
+    }
 }

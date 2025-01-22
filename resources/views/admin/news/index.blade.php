@@ -45,6 +45,9 @@
                             <td>{{ Str::limit($news->body, 250) }}</td>
                             <td>
                                 <div>
+                                    <a href="{{ route('admin.news.detail', ['id' => $news->id]) }}">詳細</a>
+                                </div>
+                                <div>
                                     <a href="{{ route('admin.news.edit', ['id' => $news->id]) }}">編集</a>
                                 </div>
                                 <div>
