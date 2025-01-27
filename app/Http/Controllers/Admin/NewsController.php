@@ -13,16 +13,15 @@ use Carbon\Carbon;
 
 class NewsController extends Controller
 {
-    // 以下を追記
+
     public function add()
     {
         return view('admin.news.create');
     }
 
-    // 以下を追記
     public function create(Request $request)
     {
-        // 以下を追記
+
         // Validationを行う
         $this->validate($request, News::$rules);
         $news = new News;
@@ -44,12 +43,11 @@ class NewsController extends Controller
         // データベースに保存する
         $news->fill($form);
         $news->save();
-        // 追記ここまで
+
         // admin/news/createにリダイレクトする
         return redirect('admin/news/create');
     }
 
-    // 以下を追記
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
@@ -63,7 +61,6 @@ class NewsController extends Controller
         return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
 
-    // 以下を追記
     public function edit(Request $request)
     {
         // News Modelからデータを取得する
@@ -99,7 +96,6 @@ class NewsController extends Controller
         // 該当するデータを上書きして保存する
         $news->fill($news_form)->save();
 
-        // 以下を追記
         $history = new History();
         $history->news_id = $news->id;
         $history->edited_at = Carbon::now();
@@ -108,7 +104,6 @@ class NewsController extends Controller
         return redirect('admin/news');
     }
 
-    // 以下を追記
     public function delete(Request $request)
     {
         // 該当するNews Modelを取得

@@ -23,25 +23,27 @@
                             <img src="{{ asset('storage/image/' . $post->image_path) }}">
                             @endif
                         </div>
-                        <div>
-                            <a href="{{ route('news.comment', ['id' => $post->id]) }}">コメントを書く</a>
-                        </div>
-                        <!-- コメント表示 -->
                         <div class="comments mt-4">
-                            <h2>コメント一覧</h2>
-                            @foreach ($comments as $comment)
-                            <div class="comment">
-                                <small>{{ $comment->created_at->format('Y年m月d日 H:i') }}</small>
-                                <p>{{ $comment->name }}</p>
-                                <p>{{ $comment->body }}</p>
+                            <div>
+                                <a href="{{ route('news.comment', ['id' => $post->id]) }}">コメントを書く</a>
                             </div>
                             <hr color="#c0c0c0">
-                            @endforeach
+                            <!-- コメント表示 -->
+                            <div class="comments mt-4">
+                                <h2>コメント一覧</h2>
+                                @foreach ($comments as $comment)
+                                <div class="comment">
+                                    <small>{{ $comment->created_at->format('Y年m月d日 H:i') }}</small>
+                                    <p>{{ $comment->name }}</p>
+                                    <p>{{ $comment->body }}</p>
+                                </div>
+                                <hr color="#c0c0c0">
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    @endsection

@@ -13,7 +13,7 @@ use Carbon\Carbon;
 
 class ProfileController extends Controller
 {
-    // 以下を追記
+
     public function add()
     {
         return view('admin.profile.create');
@@ -21,7 +21,7 @@ class ProfileController extends Controller
 
     public function create(Request $request)
     {
-        // 以下を追記
+
         // Validationを行う
         $this->validate($request, Profile::$rules);
 
@@ -44,13 +44,11 @@ class ProfileController extends Controller
         // データベースに保存する
         $profile->fill($form);
         $profile->save();
-        // 追記ここまで
 
         // admin/profile/createにリダイレクトする
         return redirect('admin/profile/create');
     }
 
-    // 以下を追記
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
@@ -99,7 +97,6 @@ class ProfileController extends Controller
         // 該当するデータを上書きして保存する
         $profile->fill($profile_form)->save();
 
-        // 以下を追記
         $profile_history = new ProfileHistory();
         $profile_history->profile_id = $profile->id;
         $profile_history->edited_at = Carbon::now();
@@ -108,7 +105,6 @@ class ProfileController extends Controller
         return redirect('admin/profile');
     }
 
-    // 以下を追記
     public function delete(Request $request)
     {
         // 該当するProfile Modelを取得

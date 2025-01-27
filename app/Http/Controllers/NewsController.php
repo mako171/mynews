@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-// 追記
 use App\Models\News;
 use App\Models\Comment;
-
 
 class NewsController extends Controller
 {
